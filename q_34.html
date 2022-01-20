@@ -1,0 +1,34 @@
+문제34: sort 구현하기
+
+민주는 체육부장으로 체육시간이 되면 반 친구들이 제대로 키 순서대로 모였는지를 확인해야 한다. 그런데 요즘 민주는 
+그것이 너무 번거롭게 느껴져 한 번에 확인하고 싶어한다. 
+
+민주를 위해 키가 주어지면 순서대로 제대로 섰는지 확인하는 프로그램을 작성해보자.
+(키는 공백으로 구분하여 입력됩니다.)
+
+<script>
+// 풀이
+
+const line = prompt('순서대로 서세요!');
+// 180 160 170  예를 들어 이렇게 섰다. 그러면 잘못 선거지? 결과값은 NO가 나와야된다.
+let lined = '';
+let lined2 = '';
+
+lined = (line.split(' ').sort(function(a,b) { return b-a })).join(' ');
+lined2 = (line.split(' ').sort(function(a,b) { return a-b })).join(' ');
+
+if (line === lined) {
+  console.log('YES')
+} else if (line === lined2) {
+  console.log('YES')
+} else {
+  console.log('NO')
+}
+
+// sort() 메서드를 이용하면 array 타입을 문자열 비교를 하여 정렬을 해준다.
+// 예를들어 [111, 21, 11, 22] 라는 배열이 있다면, [11, 111, 21, 22]라고 비교해준다.
+// .sort(function(a,b) { return a-b })는 오름차순
+// .sort(function(a,b) { return a-b })는 내림차순
+
+//.join() 메서드는 배열의 모든 요소를 연결해 하나의 string으로 만든다.
+</script>
