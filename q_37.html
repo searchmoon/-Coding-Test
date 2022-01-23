@@ -11,6 +11,7 @@
 출력
 혜원(이)가 총 4표로 반장이 되었습니다.
 
+풀이
 <script>
 
 const array = prompt('이름을 공백으로 구분하여 입력해주세요').split(' ');
@@ -21,7 +22,17 @@ for (let index in array) {
   let val = array[index];
   result[val] = result[val] === undefined ? 1 : result[val] = result[val] + 1;
 }
+//for in문을 사용하여 각각 몇표씩을 받았는지 객체로 만들어 주었다.
+//console.log(result) => {원범: 2, 혜원: 4, 유진: 2}
 
-Object.keys(result).reduce()
+
+Object.keys(result).reduce(function(a, b) {
+  return result[a] < result[b] ? a : b
+})
+// 원범 혜원, 혜원 유진이 한번씩 매개변수 a, b에 대입되어 비교함
+
+console.log(`${winner}(이)가 총${result[winner]}표로 반장이 되었습니다.`);
+
+//Object.keys(result) 메소드는 주어진 객체의 속성을 배열로 반환함. -> ['원범', '혜원', '유진']
 
 </script>
