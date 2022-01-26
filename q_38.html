@@ -23,18 +23,15 @@
   let count = 0;
   let arr = [];
 
-  while (arr.length < 3) {
+  while (arr.length < 4) {
     let n = scores.pop();
+    //.pop()은 배열에서 마지막 요소를 제거하고 그 요소를 반환함
     if(!arr.includes(n)) {
       arr.push(n);
     }
-    count += 1;
+    count ++;
   }
 
   console.log(count-1);
-
-
-
-
-
+  
 </script>
