@@ -25,15 +25,16 @@
 친구들의 수
 친구들의 몸무게 무작위로
 
+
 <script>
-  // 풀이
+  // 풀이 1번
   let total = 0;
   let count = 0;
   const limit = prompt("제한무게를 입력하세요");
   const n = prompt("인원수를 입력하세요."); 
   
   for(let i = 0; i < n; i++) { 
-    total += parseInt(prompt("무게를 입력해주세요."), 10); // 무게를 정수로 변환하여 total에 넣어준다.
+    total += parseInt(prompt("무게를 입력해주세요."), 10); // 무게를 정수로 변환하여 total에 더해준다.
     if (total <= limit){
       count = i + 1;
     } // limit값이 total을 넘지 않았을때 까지만 count를 세어준다.
@@ -41,3 +42,55 @@
   }
   console.log(count);
 </script>
+
+문제 변형: 친구들의 몸무게가 각자 다 다를때!
+
+ex) 제한 무게 150
+친구들의 수: 5명
+무게 
+40
+50
+30
+20
+60
+
+<script>
+  // 풀이 2번
+  let total = 0;
+  let count = 0;
+  const limit = prompt("제한무게를 입력하세요");
+  let arr = prompt("공백으로 구분하여 무게를 입력해주세요").split(' ').map(Number);
+  arr = arr.sort(function(a, b){ return a - b});
+  
+  for(let i = 0; i < arr.length; i++) {
+    total += arr[i];
+    if(total <= limit) {
+      count += 1;
+    }
+  }
+  console.log(count);
+</script>
+
+
+
+
+  <script>
+    // 풀이 3번
+    let total = 0;
+    let count = 0;
+    const limit = prompt("제한무게를 입력하세요");
+    const n = parseInt(prompt("인원수를 입력하세요"));
+    let arr = [];
+    // for(let i = 0; i < n.length; i++) {
+    //   arr.push(prompt("무게를 입력해주세요"));
+    // }
+    for(let i = 0; i < n; i++) {
+      arr.push(prompt("무게를 입력해주세요"));  
+      total += arr[i];
+      if(total <= limit) {
+        count += 1;
+      }
+    }
+    console.log(count);
+  </script>
+  
