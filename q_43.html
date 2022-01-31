@@ -20,6 +20,14 @@
     getArr.push(num % 2);
     num = Math.floor(num / 2);
   }
+  // 예를들어 num에 50이 들어간다면,
+  // 첫번째 반복은 gerArr의 배열로 0이 들어감.
+  // 두번째 반복은 num에 25, 배열로 1이 들어감.
+  // 세번째 반복은 num에 12, 배열로 0이 들어감.
+  // 네번째는 num에 6, 배열로 0이 들어감.
+  // 다섯번째는 num에 3, 배열로 1이 들어감.
+  // 여섯번째는 num에 1, 배열로 1이 들어감.
+  // 일곱번째는 num에 0이 들어가면서 while문을 종료함.
 
   console.log(getArr.reverse().join(''));
   // while문에서 num와 getArr에 다른 값을 다시 할당해 주었는데, 처음에 변수 값을 할당할 때, const로 사용해주어서
