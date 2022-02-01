@@ -28,16 +28,14 @@
 
 <script>
   //풀이 2번
-  let arr = [];
+  let num = [];
   let sum = 0;
 
-  for (let i = 0; i < 20; i++){
-    arr[i] = i + 1;
+  for(let i = 0; i < 20; i++){
+    num += i + 1;
   }
-  //1부터 20까지의 숫자가 들어있는 배열이 만들어 진다.
-  //이 배열을 
-  // for (let i = 0; i < 20; i++){
-  // arr[i]
-  // }
-  let str = arr.join();
+  for(let i = 0; i < num.length; i++){
+    sum += num[i];
+  }
+  console.log(sum);
 </script>
