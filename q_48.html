@@ -1,0 +1,24 @@
+문제48 : 대소문자 바꿔서 출력하기
+문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.
+
+입출력
+입력: AAABBBcccddd
+출력: aaabbbCCCDDD
+
+<script>
+  // 풀이 1번
+let eng = prompt('영문자를 입력하세요');
+let change = [];
+
+for(let i = 0; i < eng.length; i++){
+  if(eng[i].toUpperCase() === eng[i]){
+    change += eng[i].toLowerCase();
+  } else {
+    change += eng[i].toUpperCase();
+  }
+}
+
+console.log(change);
+
+</script>
+ 
