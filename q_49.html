@@ -17,4 +17,15 @@
     }
   }
   console.log(result);
+  
+  // 풀이 2번
+  let numbers = prompt('10개의 숫자를 공백으로 구분하여 입력해 주세요').split(' ').map((n) => {
+    return parseInt(n, 10);
+  });
+
+  numbers.sort((a, b) => {
+    return b - a;
+  });
+
+  console.log(numbers[0]);
 </script>
