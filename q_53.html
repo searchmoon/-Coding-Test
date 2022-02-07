@@ -8,7 +8,35 @@
 입력으로 주어진 괄호 문자열이 바른 문자열인지 바르지 않은 문자열인지 "YES"와 "NO"로 구분된 문자열을 출력해보자.
 
 <script>
-  //풀이
+  //풀이 1번
+  // 처음 입력된 괄호가 '('이 아니고 ')'라면 false
+  // '('가 하나 나올때마다 +1 ')'가 하나 나올때마다 -1 해서 총 합이 0이 되어야 true를 반환한다.
+
+  function judge(e) {
+     if (e[0] === ')'){
+        return false;
+      }
+
+    let count = 0;
+    for(let i = 0; i < e.length; i++) {
+      if (e[i] === '('){
+        count++;
+      } else if (count >= 1 && e[i] === ')') {
+        count--;
+      }
+    }
+    if(count === 0){
+      return true;
+    } else{
+      return false;
+    }
+  }
+
+  let input = prompt('괄호를 입력하세요.').split('');
+  judge(input);
+
+  
+  //풀이 2번
   function mathBrackets(e) {
     let count = 0;
 
