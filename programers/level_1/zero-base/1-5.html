@@ -1,8 +1,32 @@
-문제1:
+문제1: 별별별
+
+설명: 자연수를 입력 받아 해당 수 만큼 별을 찍는 문자열 반환 함수를 작성하시오.
+
+입력값:
+5
+7
+12
+
+출력값:
+*****
+*******
+************
+
+풀이
+<script>
+  function solution(num) {
+    let result = ''
+    for(let i = 1; i <= num; i++){
+      result += '*'
+    }
+    return result;
+  }
+</script>
 
 
 문제2: 두 수 사이 숫자
 
+설명:
 두 수 사이의 숫자들을 출력하는 함수를 작성하시오
 입력은 두 숫자 값이 주어지며, 입력된 숫자를 포함한 두 수 사이의 자연수를 배열로 반환한다.
 
@@ -51,7 +75,7 @@
 
 풀이
 <script>
-   function solution(score){
+  function solution(score){
     let average = 0;
     for(let i = 0; i < score.length; i++){
       average += score[i];
@@ -59,6 +83,7 @@
     average = average/score.length
     //이거는 average / = score.length와 같다
     average = average.toFixed(2);
+    // toFixed: 숫자를 문자열로 변환하면서 지정된 소수점 이하 숫자를 반올림하여 출력
     return average;
   }
 </script>
@@ -97,4 +122,64 @@
 // (라고 써놨는데 틀렸다.max값이랑 요소를 하나씩 비교해서 큰 값을 max에 넣는 방식!)
 // 2. 마지막 반복문이 끝나고 인덱스번호 +1 을 출력한다
 // 3. 판매량이 같은 경우는 어떻게 하지? 그럼 배열로 두명을 뽑기
+</script>
+
+문제5: 무한 뺄셈
+
+설명:
+두 자연수를 입력 받아 앞의 숫자에서 뒤의 숫자를 뺄셈하며 반복 연산하는 프로그램을 작성하시오.
+단, 무한 연산을 막기위해 뺀 값이 음수일때 프로그램이 종료된다.
+입력은 두개의 자연수가 주어지며, 초기 입력된 수를 포함하여 뺄셈을 통해 나온 숫자 모두를 배열에 저장하여 반환한다.
+예를 들어 두 수 6,3이 입력 값으로 주어졌을 때,
+6-3=3, 3-3=0, 3-0=3, 0-3=-3 => 프로그램 종료한다.
+배열로 반환되는 숫자는 [6,3,3,0,3]이 된다.
+
+입력값:
+9 3
+6 3
+13 7
+
+출력값:
+[9,3,6]
+[6,3,3,0,3]
+[13,7,6,1,5]
+
+풀이1
+<script>
+  function solution(x, y) {
+    let arr = []
+    arr.push(x);
+    arr.push(y);
+    
+    let z;
+    while(1){
+      z = x - y;
+      x = y;
+      y = z;
+    if (z < 0) break;
+    arr.push(y);
+  }
+  return arr;
+}
+</script>
+첫번째 풀이: 배열에 넣는 값이 xyyyy값
+두번째 풀이: 배열에 넣는 값이 xxxxy값
+직접 공책에 써보면 이해됨
+풀이2
+<script>
+function solution(x,y){
+  let arr = []
+  let z;
+  while(1){
+    arr.push(x)
+    z = x - y
+    x = y
+    y = z
+    if(z < 0) {
+    arr.push(x);
+      break;
+    }
+  }
+  return arr;
+}
 </script>
