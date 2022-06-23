@@ -1,0 +1,114 @@
+문제6: 대소비교
+
+설명:
+두 정수를 입력받아 문자열 형태의 대소비교 부등호를 반환하는 함수를 작성하시오.
+- 첫번째 수가 두번째 수보다 크면 >
+- 첫번째 수가 두번째 수보다 작으면 <
+- 첫번째 수와 두번째 수가 같으면 =
+
+입력:
+3 5
+7 4
+2 2
+
+출력:
+<
+>
+=
+
+
+<script>
+  //풀이
+  function solution(a,b) {
+    let result = '';
+    if(a > b){
+      result = '>';
+    } else if (a < b) {
+      result = '<';
+    } else if (a === b){
+      result = '=';
+    }
+    return result;
+  }
+  //템플릿 코드(문제마다 테스트케이스 출력할 수 있게 해줌)
+  //이렇게 script 태그의 아래쪽에 넣어주면 됨.
+/* main code */
+let input = [
+  [3, 5],
+  [7, 4],
+  [2, 2],
+];
+
+for (let i = 0; i < input.length; i++) {
+  console.log(`#${i + 1} ${answer(input[i][0], input[i][1])}`)
+}
+</script>
+
+문제7: 나누기와 대소비교
+
+설명: 4개의 수를 입력 받아 나누기 연산을 통해 대소를 판단하는 함수를 제작하시오.
+입력값은 1000 이하의 자연수 a,b,c,d가 주어지고
+a/b>c/d 일때는 1, a/b=c/d 일때는 0, a/b'<'c/d 일때는 -1을 반환한다.
+
+입력값:
+14 2 6 6
+6 7 8 9
+18 2 36 4
+
+출력값:
+1
+-1
+0
+
+풀이
+<script>
+  function solution(a, b, c, d) {
+    let result = ''
+    if(a/b > c/d){
+      result = '1';
+    } else if(a/b === c/d){
+      result = '0';
+    } else {
+      result = '-1';
+    }
+    return result;
+  }
+</script>
+
+문제8: 윤년 판별기
+자연수를 입력으로 받아 윤년이면 true, 아니면 false 값을 반환하는 함수를 작성하시오.
+윤년이란 아래 두 가지 중 하나라도 참이면 윤년이다.
+- 4의 배수이고 100의 배수가 아닐 때
+- 400의 배수일 때
+
+입력값:
+4
+100
+124
+247
+400
+
+출력값:
+true
+false
+true
+false
+true
+
+풀이
+<script>
+  function solution(year) {
+    let isleap;
+    if (year % 4 === 0 && year % 100 !== 0){
+      isleap = true;
+    } else if(year % 400 === 0){
+      isleap = true;
+    } else {
+      isleap = false;
+    }
+    return isleap;
+  }
+</script>
+논리적인 연산이 머리에 잘 안잡히면
+4의 배수, 100의배수, 400의 배수를 공책에 적어서
+입력값이 어떻게 true와 false가 나올지 o,x로 적어보기
