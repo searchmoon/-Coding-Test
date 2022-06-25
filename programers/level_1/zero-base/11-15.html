@@ -1,0 +1,95 @@
+문제11: 두 수의 정수를 입력 받아 최소 값을 반환해주는 함수를 구현하시오.
+
+입력값:
+16 3
+-3 1
+1000 525
+
+출력값:
+3
+0-3
+525
+
+풀이1
+<script>
+  function solution(a, b){
+    let result;
+    if(a > b) result = b;
+    else result = a;
+    return result;
+  }
+</script>
+풀이2
+<script>
+  function solution(a, b){
+    let result;
+    result = (a > b ? b : a);
+    return result;
+  }
+</script>
+-->이걸 풀어서 쓰면
+<script>
+  function solution(a, b){
+    return a > b ? b : a;
+  }
+</script>
+
+
+문제 12
+설명: 두 수 x,y를 입력받아 x의 y제곱 값을 반환해주는 함수를 구현하시오
+제곱연산자(**)는 사용하지 않는다.
+
+입력값:
+2 3
+4 6
+1 100
+
+출력값:
+8
+4096
+1
+
+풀이
+<script>
+function solution(x, y) {
+  let result = 1;
+  for(let i = 0; i < y; i++){
+    result *= x;
+  }
+return result;
+}
+</script>
+
+문제13: 놀이기구 입장 제한
+
+설명: 고객이 놀이기구를 탈 수 있는지 판단하는 함수를 구현하시오.
+입력값은 객체로 이름/나이/키가 입력되며, 출력값은 탑승가능 시 true, 
+불가능시 false를 반환한다.
+
+입력값:
+{name: "john", age:"27", height: 181}
+{name: "alice", age:"12", height: 148}
+{name: "bob", age:"14", height: 156}
+
+출력값:
+true
+false
+true
+
+풀이
+<script>
+  function solution(arr){
+    let result;
+    if(arr.height >= 150) result = true;
+    else result = false;
+    return result;
+  }
+  </script>
+  이렇게 풀었는데,
+  이 방법이 더 깔끔하고 좋다. 한줄로 끝내기
+  <script>
+    let result;
+    result = (user.height >= 150)
+    // (user.height >= 150) -> 이거 자체가 true나 false를 리턴하기때문에 
+    return result;
+  </script> 
