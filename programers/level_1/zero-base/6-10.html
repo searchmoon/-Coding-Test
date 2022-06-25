@@ -117,7 +117,42 @@ true
 입력값이 어떻게 true와 false가 나올지 o,x로 적어보기
 
 
-문제9: 네번째 좌표
+문제9: ATM 기기
+풀이1
+<script>
+  function solution (a, b){
+  let result;
+  if(a % 5 === 0) {
+    if(b - a - 0.5 >= 0){
+      result = b-a-0.5
+    } else {
+      result = b;
+    }
+  } else {
+    result = b;
+  }
+  return result;
+}
+</script>
+처음에는 이렇게 풀었지만, 이중 if문은 좋지않다.
+이렇게 푸는 방법을 익히도록 ->
+풀이2
+<script>
+function solution (a, b){
+  let result;
+  if(a % 5 !== 0) {
+    result = b;
+  } else if (a + 0.5 > b) {
+    result = b;
+  } else {
+    result = b-a-0.5;
+  }
+}
+
+</script>
+
+
+문제10: 네번째 좌표
 설명:
 평행한 직사각형을 만들기 위해 3개의 점을 선택한 후 네번째 점 구하기
 입력값은 x좌표 3개, y좌표 3개가 각각 배열로 입력되며, 네번재 점 [x,y]를 산출하여 반환
@@ -149,8 +184,3 @@ true
   }
 </script>
 
-
-문제10: ATM 기기
-<script>
-  
-</script>
