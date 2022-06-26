@@ -93,3 +93,67 @@ true
     // (user.height >= 150) -> 이거 자체가 true나 false를 리턴하기때문에 
     return result;
   </script> 
+
+  문제14: 요일 구하기
+  
+  설명: 날짜를 입력받아 요일을 반환해주는 함수를 구현하시오.
+  입력값은 문자형 날짜(datestring)값이 입력되며, 문자형 형태의 요일을 반환한다.
+
+  입력값:
+  "2021-01-27"
+  "2021-02-27"
+  "2021-03-14"
+
+  출력값:
+  수요일
+  토요일
+  일요일
+
+  풀이
+  <script>
+    function solution(str){
+      let result = '';
+      let week = new Array(
+        '일요일',  
+        '월요일',
+        '화요일',
+        '수요일',
+        '목요일',
+        '금요일',
+        '토요일',
+      )
+      let day = new Date(str).getDay();
+      return result = week[day]
+    }
+  </script>
+
+  문제15: 중복 단어 제거
+  설명: 중복 단어를 제거해주는 함수를 구현하시오.
+  입력 값은 배열 형태로 요소들은 문자형이 입력되고, 중복 단어가 제거된 배열을 반환한다.
+
+  입력값:
+  ['john', 'alice', 'john']
+
+  출력값:
+  ['john', 'alice']
+
+  풀이1
+  <script>
+    function solution(arr){
+      let new_arr = [];
+      new Set(arr).forEach(function(item){
+        new_arr.push(item);
+      })
+      return new_arr;
+    }
+  </script>
+  
+  풀이2
+  (for문을 쓰지 않은 풀이)
+  <script>
+    function solution(arr){
+      let new_arr = [];
+      new_arr = Array.from(new Set(arr));
+      return new_arr;
+    }
+  </script>
