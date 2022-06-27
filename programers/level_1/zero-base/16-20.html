@@ -1,0 +1,190 @@
+문제 16: 배열 내 최대값 구하기
+
+설명: 정수가 저장된 배열을 입력받아 그 중 최대값을 반환해주는 함수를 구현하시오.
+(Math 객체를 이용하지 않고 반복문을 통해 구현해야 한다.)
+입력 값은 배열 형태로 값은 정수가 입력되며, 그 중 최대값을 반환한다.
+
+입력값:
+[1,6,5,2,3]
+[19,41,23,-4,17]
+[-64,-27,-41,-33,-59]
+
+출력값:
+6
+41
+-27
+
+풀이1
+<script>
+  function solution(arr){
+    let max;
+    max = Number.MIN_SAFE_INTEGER;
+    //-> Number 객체 내의 최소 음수값을 넣어줌
+    for (let i = 0; i < arr.length; i++){
+      if(max < arr[i]) max = arr[i];
+    }
+    return max;
+  }
+</script>
+
+풀이2
+<script>
+  function solution(arr){
+    let max;
+    max = arr[0];
+    //-> 0을 넣어줄 수 없으니까(음수랑도 비교해야하기 때문에)
+    // arr의 첫번째 요소를 넣고 for문은 두번째요소부터 시작
+    for (let i = 1; i < arr.length; i++){
+      if(max < arr[i]) max = arr[i];
+    }
+    return max;
+  }
+</script>
+
+풀이3
+(Math 객체를 이용한 풀이)
+<script>
+  function solution(arr){
+    let max;
+    max = Math.max.apply(null, arr);
+    return max;
+  }
+</script>
+
+
+문제17: 스팸 메일
+
+설명: 대소문자를 구분하지 않고 Advert로 시작하는 메일제목은
+스팸 처리하는 함수를 구현하시오.
+입력값은 문자형이며, 출력 값은 스팸으로 판단할 경우 true.
+아닐 경우 false를 반환한다.
+
+입력값:
+"RE:Request documents"
+"[Advertisement] free mobile!"
+"50% off this week (advertising)"
+
+출력값:
+false
+true
+true
+
+풀이
+<script>
+  function solution(str){
+    let result;
+    result = str.toLowerCase().includes("advert");
+    return result;
+  }
+</script>
+
+문제18: 배열 회전
+
+설명: 배열을 입력 받아 순서를 역으로 만들어 반환해주는 함수를 구현사시오.
+(본 문제는 reverse 함수를 이용하지 않고 반복문을 통해 구현해야 한다.)
+입력은 배열 형태로 값은 정수형과 문자형으로 구성되어 있으며, 역으로 변환된 배열을 반환한다.
+
+입력값:
+[1,2,3,4]
+[-1,6,"hello",-15]
+["apple","banana","mango"]
+
+출력값:
+[4,3,2,1]
+[-15,"hello",6,-1]
+["mango","banana","apple"]
+
+풀이1
+<script>
+  function solution(arr){
+    let reverse = [];
+    for(let i = arr.length - 1; i >= 0; i--){
+      reverse.push(arr[i]);
+    }
+    return reverse;
+  }
+</script>
+
+풀이2
+<script>
+  //unshift를 사용한 방법도 넣어주기! for문을 통해 0~ length까지
+</script>
+
+풀이3
+<script>
+  function solution(arr){
+    let reverse = [];
+    let tmp;
+    for(let i = 0; i < arr.length / 2; i++){
+      tmp = arr[i];
+      arr[i] = arr[arr.length -1 -i];
+      arr[arr.length -1 -i] = tmp;
+    }
+    reverse = arr;
+    return reverse;
+  }
+  </script>
+
+  
+문제19: 문자 교정
+입력값의 앞글자들을 모두 대문자로 변경시켜주는 함수를 구현하시오.
+입력값은 문자형 형태의 단어들이며, 교정된 문자형으로 치환 시켜 반환한다.
+
+입력값:
+"Hello, My name is john"
+
+출력값:
+Hello, My Name Is John
+
+
+풀이
+<script>
+  function solution(str) {
+    let fix_str= "";
+    let tmp_list = str.split(" ");
+    for(let item of tmp_list){
+      fix_str += item[0].toUpperCase() + item.slice(1) + " ";
+    }
+    return fix_str;
+  }
+</script>
+
+--> 이렇게 축약
+
+<script>
+function solution(str) {
+  let fix_str= "";
+  for(let item of str.split(" ")){
+    fix_str += item[0].toUpperCase() + item.slice(1) + " ";
+  }
+  return fix_str;
+}
+</script>
+
+문제20: 2차원 배열의 곱셈 합
+
+설명: 2차원 배열을 입력 받아 모든 요소를 곱한 값을 반환해주는 함수를 구현하시오.
+입력 값은 2차원 배열로 Number 자료형 값이 들어오며, 모든 요소를 곱한 값을 반환해준다.
+
+입력값:
+[[1],[2],[3]]
+[[1,2], [3,4], [5,6,7]]
+[[5,1], [0.2,4,0.5], [3,9]]
+
+출력값:
+6
+5040
+54
+
+풀이
+<script>
+  function solution(arr){
+    let result = 1;
+    for(let i = 0; 0 < arr.length; i++){
+      for(let j = 0; j < arr[i].length; j++){
+        result *= arr[i][j];
+      }
+    }
+    return result;
+  }
+</script>
