@@ -43,3 +43,23 @@ function solution(n) {
 function solution(array) {
   return array.sort((a,b) => a-b)[Math.floor(array.length/2)];
 }
+
+//36. 치킨 쿠폰
+function solution(chicken) {
+  let answer = 0;
+  let coupon = chicken;
+
+  while(coupon >= 10){
+    answer = answer + parseInt(coupon/10)
+    coupon = parseInt(coupon/10)+ coupon%10
+  }
+
+  return answer;
+}
+// 37. 종이 자르기
+// 문제 설명
+// 머쓱이는 큰 종이를 1 x 1 크기로 자르려고 합니다. 예를 들어 2 x 2 크기의 종이를 1 x 1 크기로 자르려면 최소 가위질 세 번이 필요합니다.
+
+function solution(M, N) {
+  return M-1 + ((N-1) * M);
+}
