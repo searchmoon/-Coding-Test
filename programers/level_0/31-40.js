@@ -63,3 +63,56 @@ function solution(chicken) {
 function solution(M, N) {
   return M-1 + ((N-1) * M);
 }
+
+// 38.문자 반복 출력하기
+// 문제 설명
+// 문자열 my_string과 정수 n이 매개변수로 주어질 때, my_string에 들어있는 각 문자를 n만큼 반복한 문자열을 return 하도록 solution 함수를 완성해보세요.
+function solution(my_string, n) {
+  let answer = '';
+  for(let i = 0; i < my_string.length; i++){
+    for(let j = 1; j <= n; j++){
+      answer += my_string[i];
+    }
+  }
+  return answer;
+}
+
+//구조분해를 이용한 방법
+// function solution(my_string, n) {
+//   let answer = [...my_string].map(v => v.repeat(n)).join("");
+//   return answer;
+// }
+
+// reduce 메서드를 이용한 방법
+//function solution(my_string, n) {
+//     return my_string.split('').reduce((acc, cur) => acc + cur.repeat(n), '')
+// }
+
+// 39.문자 리스트를 문자열로 변환하기
+// 문제 설명
+// 문자들이 담겨있는 배열 arr가 주어집니다. arr의 원소들을 순서대로 이어 붙인 문자열을 return 하는 solution함수를 작성해 주세요.
+
+function solution(arr) {
+  return arr.join("");
+}
+
+// 40. 짝수는 싫어요
+// 문제 설명
+// 정수 n이 매개변수로 주어질 때, n 이하의 홀수가 오름차순으로 담긴 배열을 return하도록 solution 함수를 완성해주세요.
+
+function solution(n) {
+  let answer = [];
+  for(let i = 1; i <= Math.ceil(n/2); i ++){
+    answer.push(i*2-1);
+  }
+  return answer;
+}
+
+// 이렇게가 더 깔끔한것 같다.
+//function solution(n) {
+//     let answer = [];
+//     for(let i = 1; i <= n; i += 2){
+//         answer.push(i);
+//     }
+//     return answer;
+// }
