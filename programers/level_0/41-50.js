@@ -44,3 +44,40 @@ function solution(my_str, n) {
   return answer;
 }
 
+// 44. 자릿수 더하기
+// 문제 설명
+// 정수 n이 매개변수로 주어질 때 n의 각 자리 숫자의 합을 return하도록 solution 함수를 완성해주세요
+
+function solution(n) {
+  let answer = 0;
+  const numToArr = String(n).split('');
+  numToArr.map(num => answer += parseInt(num));
+  return answer;
+}
+
+//reduce 를 이용한 풀이
+// function solution(n) {
+  // return n.toString().split('').reduce((acc, crr) => acc += Number(crr), 0);
+// }
+
+// 45.제곱수 판별하기
+// 문제 설명
+// 어떤 자연수를 제곱했을 때 나오는 정수를 제곱수라고 합니다. 정수 n이 매개변수로 주어질 때, n이 제곱수라면 1을 아니라면 2를 return하도록 solution 함수를 완성해주세요.
+
+function solution(n) {
+  return Math.sqrt(n) % 1 === 0 ? 1 : 2;
+}
+
+// 46. 개미 군단
+// 문제 설명
+// 개미 군단이 사냥을 나가려고 합니다. 개미군단은 사냥감의 체력에 딱 맞는 병력을 데리고 나가려고 합니다. 장군개미는 5의 공격력을, 병정개미는 3의 공격력을 일개미는 1의 공격력을 가지고 있습니다. 예를 들어 체력 23의 여치를 사냥하려고 할 때, 일개미 23마리를 데리고 가도 되지만, 장군개미 네 마리와 병정개미 한 마리를 데리고 간다면 더 적은 병력으로 사냥할 수 있습니다. 사냥감의 체력 hp가 매개변수로 주어질 때, 사냥감의 체력에 딱 맞게 최소한의 병력을 구성하려면 몇 마리의 개미가 필요한지를 return하도록 solution 함수를 완성해주세요.
+
+function solution(hp) {
+  return Math.floor(hp/5) + Math.floor((hp%5)/3) + (hp%5)%3;
+}
+
+// function solution(hp) {
+//     return ~~(hp/5) + ~~((hp%5)/3) + (hp%5)%3;
+// }
+// ~~ 는 Math.floor() 랑 같은역할. ~~ 가 조금 더 빠르다. 고 했는데 이 풀이에서는 Math.floor 가 더 빠르네.
+
