@@ -91,3 +91,26 @@ function solution(rsp) {
   answer = [...rsp].map(x => rspObj[x]).join('');
   return answer;
 }
+
+// 48. 숨어있는 숫자의 덧셈 (1)
+// 문제 설명
+// 문자열 my_string이 매개변수로 주어집니다. my_string안의 모든 자연수들의 합을 return하도록 solution 함수를 완성해주세요.
+
+function solution(my_string) {
+  let answer = 0;
+  let arr = my_string.split('');
+  arr.map(item => !isNaN(item) ? answer += Number(item) : 0)
+  return answer;
+}
+
+// my_string.split('') 말고
+// [...my_string] 으로 대체해줄 수 있다.
+
+// 49.배열의 유사도
+// 문제 설명
+// 두 배열이 얼마나 유사한지 확인해보려고 합니다. 문자열 배열 s1과 s2가 주어질 때 같은 원소의 개수를 return하도록 solution 함수를 완성해주세요.
+
+function solution(s1, s2) {
+  let same = s1.filter(item => s2.includes(item));
+  return same.length;
+}
