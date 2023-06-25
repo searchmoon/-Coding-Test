@@ -19,7 +19,7 @@ signs가 [true,false,true] 이므로, 실제 수들의 값은 각각 4, -7, 12�
 signs가 [false,false,true] 이므로, 실제 수들의 값은 각각 -1, -2, 3입니다.
 따라서 세 수의 합인 0을 return 해야 합니다.
 
-풀이
+풀이 1.
 <script>
   function solution(absolutes, signs) {
     let answer = 0;
@@ -32,4 +32,11 @@ signs가 [false,false,true] 이므로, 실제 수들의 값은 각각 -1, -2, 3�
     }
     return answer;
 }
+</script>
+
+풀이 2. reduce를 이용한 풀이
+<script>
+  function solution(absolutes, signs) {
+    return absolutes.reduce((acc, val, i) => acc + (val * (signs[i] ? 1 : -1)), 0);
+  }
 </script>

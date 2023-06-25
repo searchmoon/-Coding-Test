@@ -14,8 +14,8 @@ a	b	return
 3	3	3
 5	3	12
 
-풀이
-<script> 
+풀이 1.
+<script>
   function solution(a, b) {
   var answer = 0;
   let num = [];
@@ -28,7 +28,26 @@ a	b	return
       answer += i
     }
   }
-  
+
   return answer;
 }
+</script>
+
+풀이 2. 가우스 계산법이라고도 불리는 등차수열의 합을 구하는 방법.
+두 항의 차가 일정한 등차수열의 합은 첫 항과 마지막 항을 더한 뒤 항의 개수를 곱하고 2로 나눈 값이 됩니다.
+<script>
+function solution(a, b) {
+     return (a + b) * (Math.abs(a -b) + 1) /2;
+}
+</script>
+
+풀이 3.
+<script>
+  function solution(a, b) {
+  let sum = 0;
+  for(let i = Math.min(a, b); i <= Math.max(a, b); i++){
+    sum += i;
+  }
+    return sum;
+  }
 </script>
