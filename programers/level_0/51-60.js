@@ -40,4 +40,35 @@ function solution (my_string) {
   return my_string.split('').map(item =>Number(item)).filter(item=>!isNaN(item)).sort((a,b) => a-b)
 }
 
+//54. 문자열 정수의 합
+// 문제 설명
+// 한 자리 정수로 이루어진 문자열 num_str이 주어질 때, 각 자리수의 합을 return하도록 solution 함수를 완성해주세요.
+
+function solution(num_str) {
+  let answer = 0;
+
+  for(let i = 0; i <num_str.length; i++){
+    answer += Number(num_str[i]);
+  }
+
+  return answer;
+}
+// reduce() 를 이용한 풀이
+// const solution = num_str => [...num_str].reduce((acc, crr) => acc + Number(crr), 0);
+
+//55. n의 배수
+// 문제 설명
+// 정수 num과 n이 매개 변수로 주어질 때, num이 n의 배수이면 1을 return n의 배수가 아니라면 0을 return하도록 solution 함수를 완성해주세요.
+
+function solution(num, n) {
+  return num % n ? 0 : 1;
+}
+
+//56. 문자열의 뒤의 n글자
+// 문제 설명
+// 문자열 my_string과 정수 n이 매개변수로 주어질 때, my_string의 뒤의 n글자로 이루어진 문자열을 return 하는 solution 함수를 작성해 주세요.
+
+function solution(my_string, n) {
+  return my_string.slice(my_string.length-n, my_string.length);
+}
 
