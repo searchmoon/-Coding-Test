@@ -69,6 +69,61 @@ function solution(num, n) {
 // 문자열 my_string과 정수 n이 매개변수로 주어질 때, my_string의 뒤의 n글자로 이루어진 문자열을 return 하는 solution 함수를 작성해 주세요.
 
 function solution(my_string, n) {
-  return my_string.slice(my_string.length-n, my_string.length);
+  return my_string.slice(my_string.length - n, my_string.length);
 }
 
+//57. 홀짝 구분하기
+// 문제 설명
+// 자연수 n이 입력으로 주어졌을 때 만약 n이 짝수이면 "n is even"을, 홀수이면 "n is odd"를 출력하는 코드를 작성해 보세요.
+
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = line.split(' ');
+}).on('close', function () {
+  n = Number(input[0]);
+  const result = n % 2 ? 'odd' : 'even';
+  console.log(`${n} is ${result}`);
+});
+
+//58. 공백으로 구분하기 1
+// 문제 설명
+// 단어가 공백 한 개로 구분되어 있는 문자열 my_string이 매개변수로 주어질 때, my_string에 나온 단어를 앞에서부터 순서대로 담은 문자열 배열을 return 하는 solution 함수를 작성해 주세요.
+
+function solution(my_string) {
+  let answer = my_string.split(' ');
+  return answer;
+}
+
+//59. 문자열로 변환
+// 문제 설명
+// 정수 n이 주어질 때, n을 문자열로 변환하여 return하도록 solution 함수를 완성해주세요.
+
+function solution(n) {
+  let answer = n.toString();
+  return answer;
+}
+
+// function solution(n) {
+//     return n+"";
+// }
+
+// 문자열의 생성자 String()
+// function solution(n) {
+//     return String(n);
+// }
+
+//60. rny_string
+// 문제 설명
+// 'm'과 "rn"이 모양이 비슷하게 생긴 점을 활용해 문자열에 장난을 하려고 합니다. 문자열 rny_string이 주어질 때, rny_string의 모든 'm'을 "rn"으로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
+
+function solution(rny_string) {
+  let answer = rny_string.replaceAll('m', 'rn');
+  return answer;
+}
