@@ -165,3 +165,48 @@ function solution(num) {
   }
 }
 
+
+
+//29.조건에 맞게 수열 변환하기 3
+// 문제 설명
+// 정수 배열 arr와 자연수 k가 주어집니다.
+// 만약 k가 홀수라면 arr의 모든 원소에 k를 곱하고, k가 짝수라면 arr의 모든 원소에 k를 더합니다.
+// 이러한 변환을 마친 후의 arr를 return 하는 solution 함수를 완성해 주세요.
+
+function solution(arr, k) {
+  if(k % 2 === 1){
+    answer = arr.map(num => num * k);
+  } else if (k % 2 === 0) {
+    answer = arr.map(num => num + k);
+  }
+
+  return answer;
+}
+// 삼항연산자를 이용한 간단한 풀이
+// function solution(arr, k) {
+// return arr.map((num) => k%2 ? num * k : num + k);
+// }
+
+
+//30. 정수 제곱근 판별
+// 문제 설명
+// 임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다.
+// n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
+
+// 제곱급 구하기: Math.sqrt()
+// 정수인지 확인하는 방법:
+// Number.isInteger() 로 boolean 값을 판단. 또는 나머지 연산자 % 로 1을 나누어 값이 0인지 아닌지 확인하기.
+
+function solution(n) {
+  let answer = 0;
+  let sqrt = Math.sqrt(n);
+
+  if(sqrt % 1 === 0){
+    answer = (sqrt + 1) ** 2;
+  } else {
+    answer = -1;
+  }
+
+  return answer;
+}
+
