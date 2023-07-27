@@ -43,3 +43,88 @@ function solution(num_list) {
 function solution(number, n, m) {
   return number % n === 0 && number % m === 0 ? 1 : 0;
 }
+
+//74.flag에 따라 다른 값 반환하기
+// 문제 설명
+// 두 정수 a, b와 boolean 변수 flag가 매개변수로 주어질 때, flag가 true면 a + b를 false면 a - b를 return 하는 solution 함수를 작성해 주세요.
+
+function solution(a, b, flag) {
+  return flag ? a + b : a - b;
+}
+
+//75. 수 조작하기 1
+// 문제 설명
+// 정수 n과 문자열 control이 주어집니다. control은 "w", "a", "s", "d"의 4개의 문자로 이루어져 있으며, control의 앞에서부터 순서대로 문자에 따라 n의 값을 바꿉니다.
+//
+// "w" : n이 1 커집니다.
+// "s" : n이 1 작아집니다.
+// "d" : n이 10 커집니다.
+// "a" : n이 10 작아집니다.
+// 위 규칙에 따라 n을 바꿨을 때 가장 마지막에 나오는 n의 값을 return 하는 solution 함수를 완성해 주세요.
+
+function solution(n, control) {
+  let answer = n;
+
+  for(let i = 0; i < control.length; i++){
+    if(control[i] === 'w'){
+      answer += 1;
+    } else if(control[i] === 's'){
+      answer -= 1;
+    } else if(control[i] === 'd'){
+      answer += 10;
+    } else if(control[i] === 'a'){
+      answer -= 10;
+    }
+  }
+
+  return answer;
+}
+// for of, switch 문을 이용한 풀이
+// function solution(n, control) {
+//     let answer = n;
+//     for(let v of control){
+//         switch(v){
+//             case 'w': answer ++; break;
+//             case 's': answer --; break;
+//             case 'd': answer += 10; break;
+//             case 'a': answer -= 10; break;
+//         }
+//     }
+//     return answer;
+// }
+
+//76. 소문자로 바꾸기
+// 문제 설명
+// 알파벳으로 이루어진 문자열 myString이 주어집니다. 모든 알파벳을 소문자로 변환하여 return 하는 solution 함수를 완성해 주세요.
+
+function solution(myString) {
+  let answer = myString.toLowerCase();
+  return answer;
+}
+
+//77.정수 찾기
+// 문제 설명
+// 정수 리스트 num_list와 찾으려는 정수 n이 주어질 때, num_list안에 n이 있으면 1을 없으면 0을 return하도록 solution 함수를 완성해주세요.
+
+function solution(num_list, n) {
+  let answer = 0;
+
+  for(let i of num_list){
+    if(i === n){
+      answer = 1;
+    }
+  }
+
+  return answer;
+}
+
+//result가 1 또는 0이기 때문에 boolean값을 Number로 변형해주는 풀이
+// function solution(num_list, n) {
+//   return Number(num_list.includes(n));
+// }
+
+// 아니면 이렇게 삼항연산자도 사용 가능
+// return num_list.includes(n) ? 1 : 0;
+
+
+
