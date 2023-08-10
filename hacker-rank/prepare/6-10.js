@@ -38,4 +38,35 @@ function timeConversion(s) {
   return arr.join(':');
 }
 
+//9.Grading Students
+// https://www.hackerrank.com/challenges/grading/problem
 
+function gradingStudents(grades) {
+  let result= [];
+
+  for(let value of grades){
+    let roundedValue = 0;
+    let caluateRound = Math.round(value/5) * 5;
+
+    if(caluateRound < value || caluateRound < 40){
+      result.push(value);
+    } else if (caluateRound >= 40){
+      roundedValue = Math.round(value/5) * 5;
+      result.push(roundedValue);
+    }
+  }
+
+  return result;
+}
+
+//10. Apple And Orange
+// https://www.hackerrank.com/challenges/apple-and-orange/problem
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  // Write your code here
+  let apppleInHouse = apples.filter(apple => apple + a >= s && apple + a <= t).length;
+  let orangeInHouse = oranges.filter(apple => apple + b >= s && apple + b <= t).length;
+
+  console.log(apppleInHouse);
+  console.log(orangeInHouse);
+}
