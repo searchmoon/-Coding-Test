@@ -1,4 +1,4 @@
-//50.행렬의 덧셈
+//41.행렬의 덧셈
 // 문제 설명
 // 행렬의 덧셈은 행과 열의 크기가 같은 두 행렬의 같은 행, 같은 열의 값을 서로 더한 결과가 됩니다. 2개의 행렬 arr1과 arr2를 입력받아, 행렬 덧셈의 결과를 반환하는 함수, solution을 완성해주세요.
 
@@ -16,3 +16,18 @@ function solution(arr1, arr2) {
     }
     return answer;
 }
+
+//42. 3진법 뒤집기
+// 문제 설명
+// 자연수 n이 매개변수로 주어집니다. n을 3진법 상에서 앞뒤로 뒤집은 후, 이를 다시 10진법으로 표현한 수를 return 하도록 solution 함수를 완성해주세요.
+
+function solution(n) {
+    let answer = 0;
+    let reverse = n.toString(3).split('').reverse().join('');
+
+    answer = parseInt(reverse, 3);
+
+    return answer;
+}
+
+
