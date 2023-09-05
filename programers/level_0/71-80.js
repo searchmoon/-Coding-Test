@@ -28,7 +28,7 @@ function solution(numbers, n) {
 
 function solution(num_list) {
   let answer = 0;
-  if(num_list.length >= 11){
+  if (num_list.length >= 11) {
     answer = num_list.reduce((acc, crr) => acc + crr, 0);
   } else {
     answer = num_list.reduce((acc, crr) => acc * crr, 1);
@@ -65,14 +65,14 @@ function solution(a, b, flag) {
 function solution(n, control) {
   let answer = n;
 
-  for(let i = 0; i < control.length; i++){
-    if(control[i] === 'w'){
+  for (let i = 0; i < control.length; i++) {
+    if (control[i] === "w") {
       answer += 1;
-    } else if(control[i] === 's'){
+    } else if (control[i] === "s") {
       answer -= 1;
-    } else if(control[i] === 'd'){
+    } else if (control[i] === "d") {
       answer += 10;
-    } else if(control[i] === 'a'){
+    } else if (control[i] === "a") {
       answer -= 10;
     }
   }
@@ -109,8 +109,8 @@ function solution(myString) {
 function solution(num_list, n) {
   let answer = 0;
 
-  for(let i of num_list){
-    if(i === n){
+  for (let i of num_list) {
+    if (i === n) {
       answer = 1;
     }
   }
@@ -126,5 +126,50 @@ function solution(num_list, n) {
 // 아니면 이렇게 삼항연산자도 사용 가능
 // return num_list.includes(n) ? 1 : 0;
 
+//78.세균 증식
+// 문제 설명
+// 어떤 세균은 1시간에 두배만큼 증식한다고 합니다. 처음 세균의 마리수 n과 경과한 시간 t가 매개변수로 주어질 때 t시간 후 세균의 수를 return하도록 solution 함수를 완성해주세요.
 
+function solution(n, t) {
+  let answer = n;
+  for (let i = 1; i <= t; i++) {
+    answer *= 2;
+  }
+  return answer;
+}
 
+// Math.pow() 를 이용한 풀이
+// function solution(n, t) {
+//     return n * Math.pow(2,t);
+// }
+
+//79. 이어 붙인 수
+// 문제 설명
+// 정수가 담긴 리스트 num_list가 주어집니다. num_list의 홀수만 순서대로 이어 붙인 수와 짝수만 순서대로 이어 붙인 수의 합을 return하도록 solution 함수를 완성해주세요.
+
+function solution(num_list) {
+  let answer = 0;
+  let a = [];
+  let b = [];
+
+  for (let i = 0; i < num_list.length; i++) {
+    if (num_list[i] % 2) {
+      a.push(num_list[i]);
+    } else {
+      b.push(num_list[i]);
+    }
+    answer = +a.join("") + +b.join("");
+    //parseInt나 Number 대신 앞에 + 붙여주면 숫자형으로 형변환 된다.
+  }
+
+  return answer;
+}
+
+//80.A 강조하기
+// 문제 설명
+// 문자열 myString이 주어집니다. myString에서 알파벳 "a"가 등장하면 전부 "A"로 변환하고, "A"가 아닌 모든 대문자 알파벳은 소문자 알파벳으로 변환하여 return 하는 solution 함수를 완성하세요.
+
+function solution(myString) {
+  let answer = myString.toLowerCase().replaceAll("a", "A");
+  return answer;
+}
