@@ -173,3 +173,6 @@ function solution(myString) {
   let answer = myString.toLowerCase().replaceAll("a", "A");
   return answer;
 }
+
+
+//커밋 되나 확인
