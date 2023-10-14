@@ -1,30 +1,27 @@
-
 //81. 홀짝에 따라 다른 값 반환하기
 //문제 설명
 //양의 정수 n이 매개변수로 주어질 때, n이 홀수라면 n 이하의 홀수인 모든 양의 정수의 합을 return 하고 n이 짝수라면 n 이하의 짝수인 모든 양의 정수의 제곱의 합을 return 하는 solution 함수를 작성해 주세요.
 
 function solution(n) {
-    let answer = 0;
-    
-    if(n % 2 === 1){
-        for(let i = 1; i <= n; i += 2){
-            answer = (n+1)/2*((n + 1)/2) ;
-        }        
-    } else {
-        for(let i = 2; i <= n; i += 2){
-            answer += i ** 2;
-        }
+  let answer = 0;
+
+  if (n % 2 === 1) {
+    for (let i = 1; i <= n; i += 2) {
+      answer = ((n + 1) / 2) * ((n + 1) / 2);
     }
-    
-    return answer;
+  } else {
+    for (let i = 2; i <= n; i += 2) {
+      answer += i ** 2;
+    }
+  }
+
+  return answer;
 }
 
 //시간복잡도를 줄이는 코드
 function solution(n) {
-    if(n%2===1)
-      return  ((n+1)/2)**2;
-    else
-      return   n*(n+1)*(n+2)/6;
+  if (n % 2 === 1) return ((n + 1) / 2) ** 2;
+  else return (n * (n + 1) * (n + 2)) / 6;
 }
 
 // n이 홀수일 때는 자연수 거듭 제곱의 합 공식
@@ -42,13 +39,13 @@ function solution(n) {
 // 두 문자열 ineq와 eq가 주어집니다. ineq는 "<"와 ">"중 하나고, eq는 "="와 "!"중 하나입니다. 그리고 두 정수 n과 m이 주어질 때, n과 m이 ineq와 eq의 조건에 맞으면 1을 아니면 0을 return하도록 solution 함수를 완성해주세요.
 
 function solution(ineq, eq, n, m) {
-    let answer = 0;
+  let answer = 0;
 
-    let str = (n + ineq + eq + m).replace("!","");
-    
-    let func = new Function('return ' + str);
-    answer = func() ? 1 : 0;
-    return answer;
+  let str = (n + ineq + eq + m).replace("!", "");
+
+  let func = new Function("return " + str);
+  answer = func() ? 1 : 0;
+  return answer;
 }
 //eval(str) 이렇게 해서 연산을 할까 했지만, eval함수는 보안상에 좋지 않으므로 사용을 지양한다.
 
@@ -81,3 +78,29 @@ function solution(str_list, ex) {
   }
   return answer;
 }
+
+//84.ad 제거하기
+// 문제 설명
+// 문자열 배열 strArr가 주어집니다. 배열 내의 문자열 중 "ad"라는 부분 문자열을 포함하고 있는 모든 문자열을 제거하고 남은 문자열을 순서를 유지하여 배열로 return 하는 solution 함수를 완성해 주세요.
+
+function solution(strArr) {
+  let answer = [];
+
+  for (let item of strArr) {
+    if (!item.includes("ad")) {
+      answer.push(item);
+    }
+  }
+
+  return answer;
+}
+
+//85. 가장 큰 수 찾기
+// 문제 설명
+// 정수 배열 array가 매개변수로 주어질 때, 가장 큰 수와 그 수의 인덱스를 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+
+function solution(array) {
+  let max = Math.max(...array);
+  return [max, array.indexOf(max)];
+}
+
