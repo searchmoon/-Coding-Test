@@ -104,3 +104,68 @@ function solution(array) {
   return [max, array.indexOf(max)];
 }
 
+//86. 부분 문자열인지 확인하기
+// 문제 설명
+// 부분 문자열이란 문자열에서 연속된 일부분에 해당하는 문자열을 의미합니다. 예를 들어, 문자열 "ana", "ban", "anana", "banana", "n"는 모두 문자열 "banana"의 부분 문자열이지만, "aaa", "bnana", "wxyz"는 모두 "banana"의 부분 문자열이 아닙니다.
+// 문자열 my_string과 target이 매개변수로 주어질 때, target이 문자열 my_string의 부분 문자열이라면 1을, 아니라면 0을 return 하는 solution 함수를 작성해 주세요.
+
+function solution(my_string, target) {
+  let answer = my_string.includes(target) ? 1 : 0;
+  return answer;
+}
+
+//87. 조건에 맞게 수열 변환하기 1
+// 문제 설명
+// 정수 배열 arr가 주어집니다. arr의 각 원소에 대해 값이 50보다 크거나 같은 짝수라면 2로 나누고, 50보다 작은 홀수라면 2를 곱합니다. 그 결과인 정수 배열을 return 하는 solution 함수를 완성해 주세요.
+
+
+function solution(arr) {
+  return arr.map(a => {
+    if(a >= 50 && a % 2 ===0) return a/2
+    if(a < 50 && a % 2 === 1) return a*2
+    return a
+  })
+}
+
+//88. n개 간격의 원소들
+// 문제 설명
+// 정수 리스트 num_list와 정수 n이 주어질 때, num_list의 첫 번째 원소부터 마지막 원소까지 n개 간격으로 저장되어있는 원소들을 차례로 담은 리스트를 return하도록 solution 함수를 완성해주세요.
+
+function solution(num_list, n) {
+  let answer = [];
+
+  for(let i = 0; i < num_list.length; i += n){
+    answer.push(num_list[i]);
+  }
+  return answer;
+}
+
+// filter를 이용한 풀이
+// function solution(num_list, n) {
+//     return num_list.filter((_, index) => index % n === 0)
+// }
+
+//89. l로 만들기
+// 문제 설명
+// 알파벳 소문자로 이루어진 문자열 myString이 주어집니다. 알파벳 순서에서 "l"보다 앞서는 모든 문자를 "l"로 바꾼 문자열을 return 하는 solution 함수를 완성해 주세요.
+
+function solution(myString) {
+  const result = [];
+
+  for (let i = 0; i < myString.length; i++) {
+    result.push(myString[i] < 'l' ? 'l' : myString[i]);
+  }
+
+  return result.join('');
+}
+
+// map 을 이용한 풀이
+// function solution(myString) {
+//   return [...myString].map((v) => v < 'l' ? 'l' : v).join('');
+// }
+
+//정규표현식, replace를 이용한 풀이
+// const solution = myString => myString.replace(/[a-k]/g,'l')
+
+
+
