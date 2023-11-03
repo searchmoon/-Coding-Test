@@ -58,3 +58,66 @@ function solution(num_list) {
   let answer = num_list.sort((a, b) => a - b).slice(5)
   return answer;
 }
+
+//94. 뒤에서 5등까지
+// 문제 설명
+// 정수로 이루어진 리스트 num_list가 주어집니다. num_list에서 가장 작은 5개의 수를 오름차순으로 담은 리스트를 return하도록 solution 함수를 완성해주세요.
+
+function solution(num_list) {
+  let answer = num_list.sort((a, b) => a - b).slice(0,5);
+  return answer;
+}
+
+//95.특정한 문자를 대문자로 바꾸기
+// 문제 설명
+// 영소문자로 이루어진 문자열 my_string과 영소문자 1글자로 이루어진 문자열 alp가 매개변수로 주어질 때, my_string에서 alp에 해당하는 모든 글자를 대문자로 바꾼 문자열을 return 하는 solution 함수를 작성해 주세요.
+
+function solution(my_string, alp) {
+  return [...my_string].map(word => word === alp ? word.toUpperCase() : word).join("")
+}
+
+// replaceAll 을 이용한 풀이
+// function solution(my_string, alp) {
+//     return my_string.replaceAll(alp, alp.toUpperCase());
+// }
+
+//96. 배열의 원소만큼 추가하기
+// 문제 설명
+// 아무 원소도 들어있지 않은 빈 배열 X가 있습니다. 양의 정수 배열 arr가 매개변수로 주어질 때, arr의 앞에서부터 차례대로 원소를 보면서 원소가 a라면 X의 맨 뒤에 a를 a번 추가하는 일을 반복한 뒤의 배열 X를 return 하는 solution 함수를 작성해 주세요.
+
+function solution(arr) {
+    let answer = [];
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr[i]; j++){
+            answer.push(arr[i])
+        }
+    }
+    return answer;
+}
+
+// 조금 더 간단한 for문
+// function solution(arr) {
+//   const answer = [];
+//
+//   for (const num of arr) {
+//     for (let i = 0; i < num; i++) {
+//       answer.push(num);
+//     }
+//   }
+//
+//   return answer;
+// }
+
+// reduce() 를 이용한 풀이
+// function solution(arr) {
+//   return arr.reduce((list, num) => [...list, ...new Array(num).fill(num)], []);
+// }
+
+//97.0 떼기
+// 문제 설명
+// 정수로 이루어진 문자열 n_str이 주어질 때, n_str의 가장 왼쪽에 처음으로 등장하는 0들을 뗀 문자열을 return하도록 solution 함수를 완성해주세요.
+
+function solution(n_str) {
+  let answer = String(Number(n_str));
+  return answer;
+}
