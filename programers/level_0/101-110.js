@@ -65,3 +65,56 @@ function solution(arr) {
 function solution(myString, pat) {
   return myString.toUpperCase().includes(pat.toUpperCase()) ? 1 : 0;
 }
+
+// 105. 5명씩
+// 문제 설명
+// 최대 5명씩 탑승가능한 놀이기구를 타기 위해 줄을 서있는 사람들의 이름이 담긴 문자열 리스트 names가 주어질 때, 앞에서 부터 5명씩 묶은 그룹의 가장 앞에 서있는 사람들의 이름을 담은 리스트를 return하도록 solution 함수를 완성해주세요. 마지막 그룹이 5명이 되지 않더라도 가장 앞에 있는 사람의 이름을 포함합니다.
+
+function solution(names) {
+    let answer = [];
+    
+    for(let i = 0; i < names.length; i += 5){
+        answer.push(names[i]);
+    }
+    
+    return answer;
+}
+
+// filter를 사용한 방법.
+// 이 방법이 더 효율적일것이라고 생각했는데, 시간복잡도가 조금 더 들더라.
+// function solution(names) {
+//     let answer = names.filter((item, idx) => (idx%5) === 0);
+//     return answer;
+// }
+
+//106. 배열에서 문자열 대소문자 변환하기
+// 문제 설명
+// 문자열 배열 strArr가 주어집니다. 모든 원소가 알파벳으로만 이루어져 있을 때, 배열에서 홀수번째 인덱스의 문자열은 모든 문자를 대문자로, 짝수번째 인덱스의 문자열은 모든 문자를 소문자로 바꿔서 반환하는 solution 함수를 완성해 주세요.
+
+function solution(strArr) {
+  let answer = strArr.map((str, i) => (i % 2 === 0 ? str.toLowerCase() : str.toUpperCase()));
+  return answer;
+}
+
+//107. 주사위 게임 1
+// 문제 설명
+// 1부터 6까지 숫자가 적힌 주사위가 두 개 있습니다. 두 주사위를 굴렸을 때 나온 숫자를 각각 a, b라고 했을 때 얻는 점수는 다음과 같습니다.
+
+// a와 b가 모두 홀수라면 a2 + b2 점을 얻습니다.
+// a와 b 중 하나만 홀수라면 2 × (a + b) 점을 얻습니다.
+// a와 b 모두 홀수가 아니라면 |a - b| 점을 얻습니다.
+// 두 정수 a와 b가 매개변수로 주어질 때, 얻는 점수를 return 하는 solution 함수를 작성해 주세요.
+
+function solution(a, b) {
+  let answer = 0;
+
+  if (a % 2 === 1 && b % 2 === 1) {
+    answer = a ** 2 + b ** 2;
+  } else if (a % 2 === 1 || b % 2 === 1) {
+    answer = 2 * (a + b);
+  } else {
+    answer = Math.abs(a - b);
+  }
+
+  return answer;
+}
