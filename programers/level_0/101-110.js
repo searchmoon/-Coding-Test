@@ -71,13 +71,13 @@ function solution(myString, pat) {
 // 최대 5명씩 탑승가능한 놀이기구를 타기 위해 줄을 서있는 사람들의 이름이 담긴 문자열 리스트 names가 주어질 때, 앞에서 부터 5명씩 묶은 그룹의 가장 앞에 서있는 사람들의 이름을 담은 리스트를 return하도록 solution 함수를 완성해주세요. 마지막 그룹이 5명이 되지 않더라도 가장 앞에 있는 사람의 이름을 포함합니다.
 
 function solution(names) {
-    let answer = [];
-    
-    for(let i = 0; i < names.length; i += 5){
-        answer.push(names[i]);
-    }
-    
-    return answer;
+  let answer = [];
+
+  for (let i = 0; i < names.length; i += 5) {
+    answer.push(names[i]);
+  }
+
+  return answer;
 }
 
 // filter를 사용한 방법.
@@ -115,6 +115,52 @@ function solution(a, b) {
   } else {
     answer = Math.abs(a - b);
   }
+
+  return answer;
+}
+
+//108. 더 크게 합치기
+// 문제 설명
+// 연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를 들면 다음과 같습니다.
+// 12 ⊕ 3 = 123
+// 3 ⊕ 12 = 312
+// 양의 정수 a와 b가 주어졌을 때, a ⊕ b와 b ⊕ a 중 더 큰 값을 return 하는 solution 함수를 완성해 주세요.
+// 단, a ⊕ b와 b ⊕ a가 같다면 a ⊕ b를 return 합니다.
+
+function solution(a, b) {
+  let aAddB = Number(a.toString() + b.toString());
+  let bAddA = Number(b.toString() + a.toString());
+
+  return aAddB > bAddA ? aAddB : bAddA;
+}
+
+// Math.max, Number(`${a}${b}`) 사용한 방법
+function solution(a, b) {
+  return Math.max(Number(`${a}${b}`), Number(`${b}${a}`));
+}
+
+//109. 접미사인지 확인하기
+// 문제 설명
+// 어떤 문자열에 대해서 접미사는 특정 인덱스부터 시작하는 문자열을 의미합니다. 예를 들어, "banana"의 모든 접미사는 "banana", "anana", "nana", "ana", "na", "a"입니다.
+// 문자열 my_string과 is_suffix가 주어질 때, is_suffix가 my_string의 접미사라면 1을, 아니면 0을 return 하는 solution 함수를 작성해 주세요.
+
+function solution(my_string, is_suffix) {
+  let answer = 0;
+  let strLength = my_string.length;
+
+  for (let i = 0; i < strLength; i++) {
+    if (my_string.slice(i, strLength) == is_suffix) {
+      return (answer = 1);
+    }
+  }
+
+  return answer;
+}
+
+//endsWith 메서드 사용한 방법
+
+function solution(my_string, is_suffix) {
+  let answer = my_string.endsWith(is_suffix) ? 1 : 0;
 
   return answer;
 }
