@@ -34,3 +34,60 @@ function solution(my_strings, parts) {
   }
   return answer;
 }
+
+//114. 배열의 길이에 따라 다른 연산하기
+// 문제 설명
+// 정수 배열 arr과 정수 n이 매개변수로 주어집니다. arr의 길이가 홀수라면 arr의 모든 짝수 인덱스 위치에 n을 더한 배열을, arr의 길이가 짝수라면 arr의 모든 홀수 인덱스 위치에 n을 더한 배열을 return 하는 solution 함수를 작성해 주세요.
+
+function solution(arr, n) {
+  const answer = [];
+  const isOddArr = arr.length % 2 === 1;
+  for (let i = 0; i < arr.length; i++) {
+    let isOddIdx = i % 2;
+    if ((isOddArr && !isOddIdx) || (!isOddArr && isOddIdx)) {
+      answer.push(arr[i] + n);
+    } else {
+      answer.push(arr[i]);
+    }
+  }
+  return answer;
+}
+
+//map 을 사용한 깔끔하고 간단한 방식.
+const solution = (arr, n) => 
+  arr.map((num, idx) => (arr.length % 2 !== idx % 2 
+  ? num + n 
+  : num
+));
+
+//115. x 사이의 개수
+// 문제 설명
+// 문자열 myString이 주어집니다. myString을 문자 "x"를 기준으로 나눴을 때 나눠진 문자열 각각의 길이를 순서대로 저장한 배열을 return 하는 solution 함수를 완성해 주세요.
+
+// 제한사항
+// 1 ≤ myString의 길이 ≤ 100,000
+// myString은 알파벳 소문자로 이루어진 문자열입니다.
+
+function solution(myString) {
+  let answer = myString.split("x").map((item) => item.length);
+  return answer;
+}
+
+//116. 두 수의 연산값 비교하기
+// 문제 설명
+// 연산 ⊕는 두 정수에 대한 연산으로 두 정수를 붙여서 쓴 값을 반환합니다. 예를 들면 다음과 같습니다.
+
+// 12 ⊕ 3 = 123
+// 3 ⊕ 12 = 312
+// 양의 정수 a와 b가 주어졌을 때, a ⊕ b와 2 * a * b 중 더 큰 값을 return하는 solution 함수를 완성해 주세요.
+
+// 단, a ⊕ b와 2 * a * b가 같으면 a ⊕ b를 return 합니다.
+
+function solution(a, b) {
+  let answer = 0;
+  const attachNum = String(a) + String(b);
+  answer = 2 * a * b > attachNum ? 2 * a * b : Number(attachNum);
+  return answer;
+}
+//string 으로 변환할때, String(a) a.toString(),a+"" 이렇게 하는 다양한 방법이 있다.
+
