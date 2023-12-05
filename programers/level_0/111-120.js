@@ -91,3 +91,29 @@ function solution(a, b) {
 }
 //string 으로 변환할때, String(a) a.toString(),a+"" 이렇게 하는 다양한 방법이 있다.
 
+// 117. 최댓값 만들기 (2)
+// 문제 설명
+// 정수 배열 numbers가 매개변수로 주어집니다. numbers의 원소 중 두 개를 곱해 만들 수 있는 최댓값을 return하도록 solution 함수를 완성해주세요.
+
+function solution(numbers) {
+  const arrLength = numbers.length;
+
+  numbers.sort((a, b) => a - b);
+  //정렬해서 맨앞 두개 곱한값과 맨뒤 두개 곱한값중에 최대값
+  return Math.max(numbers[arrLength - 1] * numbers[arrLength - 2], numbers[0] * numbers[1]);
+}
+
+// 118.가까운 1 찾기
+// 문제 설명
+// 정수 배열 arr가 주어집니다. 이때 arr의 원소는 1 또는 0입니다. 정수 idx가 주어졌을 때, idx보다 크면서 배열의 값이 1인 가장 작은 인덱스를 찾아서 반환하는 solution 함수를 완성해 주세요.
+
+// 단, 만약 그러한 인덱스가 없다면 -1을 반환합니다.
+
+function solution(arr, idx) {
+  for (let i = idx; i < arr.length; i++) {
+    if (arr[i] === 1) {
+      return i;
+    }
+  }
+  return -1;
+}
